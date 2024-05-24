@@ -4,12 +4,16 @@ public class Counter {
 
     private int value = 0;
 
-    public synchronized void increment() {
-        this.value++;
+    public void increment() {
+        synchronized (this) {
+            value++;
+        }
     }
 
-    public synchronized void decrement() {
-        this.value--;
+    public void decrement() {
+        synchronized (this) {
+            value--;
+        }
     }
 
     @Override
