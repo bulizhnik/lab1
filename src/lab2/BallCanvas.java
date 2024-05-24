@@ -39,7 +39,7 @@ public class BallCanvas extends JPanel {
     private lab2.BounceFrame frame;
     public BallCanvas(lab2.BounceFrame frame) {
         this.frame = frame;
-//        createHoles();
+        createHoles();
     }
 
     private void createHoles() {

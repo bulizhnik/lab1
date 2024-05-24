@@ -14,7 +14,7 @@ public class BallPaiter extends Thread {
         try {
             while (true) {
                 balls.forEach(lab2.Ball::repaint);
-                Thread.sleep(50);
+                Thread.sleep(5);
             }
         } catch (InterruptedException ex) {
         }

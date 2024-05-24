@@ -2,6 +2,7 @@ package lab2;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.Random;
 
 class Ball {
     private Component canvas;
@@ -27,20 +28,20 @@ class Ball {
     public Ball(Component c, lab2.BallColor color){
         this.canvas = c;
         this.ballcolor = color;
-        x = 0;
-        y = 0;
+//        x = 0;
+//        y = 0;
         canvasWidth = this.canvas.getWidth();
         canvasHeight = this.canvas.getHeight();
 
-//        if(Math.random()<0.5){
-//            x = new
-//                    Random().nextInt(this.canvas.getWidth());
-//            y = 0;
-//        }else{
-//            x = 0;
-//            y = new
-//                    Random().nextInt(this.canvas.getHeight());
-//        }
+        if(Math.random()<0.5){
+            x = new
+                    Random().nextInt(this.canvas.getWidth());
+            y = 0;
+        }else{
+            x = 0;
+            y = new
+                    Random().nextInt(this.canvas.getHeight());
+        }
     }
     public static void f(){
         int a = 0;

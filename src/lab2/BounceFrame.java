@@ -11,7 +11,7 @@ import java.util.List;
 public class BounceFrame extends JFrame {
     private lab2.BallCanvas canvas;
     protected JLabel ballsInHolesLabel; // Додайте JLabel для відображення лічильника
-
+    private BallThread previous = null;
     public static final int WIDTH = 900;
     public static final int HEIGHT = 800;
     public BounceFrame() {
@@ -36,13 +36,16 @@ public class BounceFrame extends JFrame {
         List<lab2.Ball> ballsSync = Collections.synchronizedList(balls);
         lab2.BallPaiter painter = new lab2.BallPaiter(ballsSync);
         painter.start();
+
+
         buttonBlueBall.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 lab2.Ball b = new lab2.Ball(canvas, lab2.BallColor.blue);
                 canvas.add(b);
                 ballsSync.add(b);
-                lab2.BallThread thread = new lab2.BallThread(b, canvas.getHoles(), canvas);
+                lab2.BallThread thread = new lab2.BallThread(b, canvas.getHoles(), canvas, previous);
+                previous = thread;
                 thread.start();
                 System.out.println("Thread name = " +
                         thread.getName());
@@ -55,7 +58,8 @@ public class BounceFrame extends JFrame {
                 lab2.Ball b = new lab2.Ball(canvas, lab2.BallColor.red);
                 canvas.add(b);
                 ballsSync.add(b);
-                lab2.BallThread thread = new lab2.BallThread(b, canvas.getHoles(), canvas);
+                lab2.BallThread thread = new lab2.BallThread(b, canvas.getHoles(), canvas, previous);
+                previous = thread;
                 thread.start();
                 System.out.println("Thread name = " +
                         thread.getName());
