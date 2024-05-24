@@ -1,7 +1,7 @@
 package lab2;
 
 public class Main {
-    private static Counter counter = new Counter();
+    private static final Counter counter = new Counter();
     public static void main(String[] args) throws InterruptedException {
         Thread incrementThread = createThread(true);
         Thread decrementThread = createThread(false);

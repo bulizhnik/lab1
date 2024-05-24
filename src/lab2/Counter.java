@@ -4,11 +4,11 @@ public class Counter {
 
     private int value = 0;
 
-    public void increment(){
+    public synchronized void increment() {
         this.value++;
     }
 
-    public void decrement(){
+    public synchronized void decrement() {
         this.value--;
     }
 
