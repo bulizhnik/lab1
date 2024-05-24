@@ -1,18 +1,26 @@
 package lab2;
 
-public class Counter {
+import java.util.concurrent.locks.ReentrantLock;
 
+public class Counter {
+    private final ReentrantLock lock = new ReentrantLock();
     private int value = 0;
 
     public void increment() {
-        synchronized (this) {
-            value++;
+        lock.lock();
+        try {
+            this.value++;
+        } finally {
+            lock.unlock();
         }
     }
 
     public void decrement() {
-        synchronized (this) {
-            value--;
+        lock.lock();
+        try {
+            this.value--;
+        } finally {
+            lock.unlock();
         }
     }
 
