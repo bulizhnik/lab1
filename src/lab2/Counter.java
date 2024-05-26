@@ -26,8 +26,6 @@ public class Counter {
 
     @Override
     public String toString() {
-        return "Counter{" +
-                "value=" + value +
-                '}';
+        return "Counter output: " + value;
     }
 }
