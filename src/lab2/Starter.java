@@ -2,7 +2,7 @@ package lab2;
 
 public class Starter {
     private final Object lock = new Object();
-    private boolean turn = true; // true - перший потік, false - другий потік
+    private boolean turn = true;
 
     public static void main(String[] args) {
         Starter printer = new Starter();
